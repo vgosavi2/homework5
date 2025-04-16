@@ -28,8 +28,7 @@
   <div class="chart">
     <h2>Chart 1: Average Square Footage by County</h2>
     <p>
-      This bar chart shows the average building square footage grouped by county. The x-axis is categorical (ordinal) and represents counties, while the y-axis displays the mean square footage (quantitative).
-      I chose a vertical bar chart because it clearly distinguishes the differences in average size. Tooltip interactivity helps view exact values. I applied simple preprocessing by trimming whitespace in column names.
+     The first plot shows how the average building size differs by county. It compares the mean square footage across counties using a bar chart. Each bar represents a county, and its height shows the average square footage of buildings in that area. This makes it easy to spot which counties have generally larger buildings. The x-axis uses county names, while the y-axis shows the average square footage. The bars are sorted by size from largest to smallest for better comparison. No color scale was used since we are only showing one value per county, and height is enough to understand the differences. In the Python code, a simple group-by operation was applied to compute the mean square footage by county, and extra spaces were removed from column names to ensure everything works properly.
     </p>
     <div id="visualisation_01"></div>
   </div>
@@ -38,8 +37,7 @@
   <div class="chart">
     <h2>Chart 2: Square Footage Trends Over Time by Usage Type</h2>
     <p>
-      This line chart shows how average square footage has changed over time (binned into 5-year intervals) for the top 5 most common building usage types.
-      I used line marks with color encoding by usage type and interactive dropdown filtering. The y-axis uses symlog scale to handle outliers. I transformed the year into 5-year bins and dropped rows with missing values.
+      The second plot shows how building sizes have changed over time for different usage types like classrooms or offices. It uses a line chart where each line shows the average square footage for one usage type, grouped by 5-year periods. The chart includes a dropdown menu that lets users pick a usage type, which makes that line stand out more clearly. This helps focus on trends for a specific category while still seeing other lines in the background. The x-axis shows the 5-year bins, and the y-axis uses a symlog scale to handle the wide range of values. Each usage type has a different color using the sinebow color scale so they’re easy to tell apart. In the data, only the top five usage types were kept, and years were cleaned and grouped into bins. The interactive dropdown helps make the chart easier to explore and gives the user control to focus on what they care about most
     </p>
     <p>
       Interactivity was added through a dropdown selection which allows viewers to isolate and emphasize one usage line at a time—improving clarity and engagement.
