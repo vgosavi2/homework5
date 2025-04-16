@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Altair Visualizations – Homework</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2em;
+      max-width: 900px;
+    }
+    h1, h2 {
+      color: #333;
+    }
+    .chart {
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Altair Visualizations – UIUC IS445</h1>
+
+  <!-- Chart 1 Section -->
+  <div class="chart">
+    <h2>Chart 1: Average Square Footage by County</h2>
+    <p>
+      This bar chart shows the average building square footage grouped by county. The x-axis is categorical (ordinal) and represents counties, while the y-axis displays the mean square footage (quantitative).
+      I chose a vertical bar chart because it clearly distinguishes the differences in average size. Tooltip interactivity helps view exact values. I applied simple preprocessing by trimming whitespace in column names.
+    </p>
+    <div id="visualisation_01"></div>
+  </div>
+
+  <!-- Chart 2 Section -->
+  <div class="chart">
+    <h2>Chart 2: Square Footage Trends Over Time by Usage Type</h2>
+    <p>
+      This line chart shows how average square footage has changed over time (binned into 5-year intervals) for the top 5 most common building usage types.
+      I used line marks with color encoding by usage type and interactive dropdown filtering. The y-axis uses symlog scale to handle outliers. I transformed the year into 5-year bins and dropped rows with missing values.
+    </p>
+    <p>
+      Interactivity was added through a dropdown selection which allows viewers to isolate and emphasize one usage line at a time—improving clarity and engagement.
+    </p>
+    <div id="visualisation_02"></div>
+  </div>
+
+  <script type="text/javascript">
+    vegaEmbed('#visualisation_01', 'visualisation_01.json', { actions: false }).catch(console.error);
+    vegaEmbed('#visualisation_02', 'visualisation_02.json', { actions: false }).catch(console.error);
+  </script>
+
+</body>
+</html>
